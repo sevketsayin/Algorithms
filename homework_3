@@ -1,4 +1,4 @@
-Домашку не решил, поэтому отпрапвляю код с урока:
+Домашку не решил, поэтому отправляю код с урока:
 
 function Hanoi(n, A, C, B) {
   if (n <= 0) throw new Error("the number should be positive");
