@@ -1,0 +1,28 @@
+const merge = (left, right) => {
+    const arrSort = [];
+    let i = j = 0;
+
+    while (i < left.length && j < right.length) {
+        arrSort.push(
+            (left[i] < right[j]) ?
+                left[i++] : right[j++]
+        );
+    }
+
+    return [
+        ...arrSort,
+        ...left.slice(i),
+        ...right.slice(j)
+    ];
+};
+
+
+
+const mergeSort = arr => {
+
+    const middle = Math.floor(arr.length / 2);
+    const arrLeft = arr.slice(0, middle);
+    const arrRight = arr.slice(middle);
+
+    return merge(mergeSort(arrLeft), mergeSort(arrRight))
+};
