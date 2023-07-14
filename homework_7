@@ -1,0 +1,22 @@
+// Постройте частотный словарь букв русского (или английского) текста.
+
+function dictCount(text) {
+  let frequencyDict = {};
+
+  for (let i = 0; i < text.length; i++) {
+    let letter = text[i].toLowerCase();
+    
+    if (/^[a-z]$/.test(letter)) {  //Проверяем, является ли символ буквой англ алфавита
+      if (frequencyDict[letter]) {
+        frequencyDict[letter]++;
+      } else {
+        frequencyDict[letter] = 1;
+      }
+    }
+  }
+  return frequencyDict;
+}
+
+let text = "This is a sample text to build a frequency dictionary.";
+
+console.log(dictCount(text));
