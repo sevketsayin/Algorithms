@@ -1,0 +1,41 @@
+// Вызов лифта:
+// В доме два лифта.
+// Реализовать алгоритм отправки наиближайшего на вызывающий этаж.
+
+// Алгоритм будет применяться в домах разной этажности.
+
+// Пример:
+// в доме 19 этажей
+// работают лифт А и лифт В
+// лифт А находиться на 0 этаже
+// лифт В находиться на 8 этаже
+// лифт C находиться на 7 этаже
+// на вход: 1
+// отправляем лифт А
+
+// ----------------------------------------------------------------------
+
+class Elevator {
+  constructor(currentFloor) {
+    this.currentFloor = currentFloor;
+  }
+}
+
+function findNearestElevator(requestedFloor, availableElevators) {
+  let nearestElevator = null;
+  let minDistance = Infinity;
+
+  for (const elevator of availableElevators) {
+    const currentFloorOfElevator = elevator.currentFloor;
+    const distance = Math.abs(requestedFloor - currentFloorOfElevator);
+
+    if (distance < minDistance) {
+      nearestElevator = elevator;
+      minDistance = distance;
+    }
+  }
+
+  return nearestElevator;
+}
+
+const nearestElevator = findNearestElevator(requestedFloor, availableElevators);
